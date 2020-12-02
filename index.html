@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  	
+  	<style type="text/css">
+  	
+#main {
+  width: 400px;
+  height: 220px;;
+  margin: 50px;
+  background-color:#e0eff2;
+  padding: 10px 10px 260px 10px;
+  border-radius: 20px;
+  border: 5px solid #eea888;
+
+}
+
+
+.button{
+  height: 50px;
+  border-bottom: 3px solid grey;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 40px;
+  color:white;
+  font-size: 20px;
+  margin: 5px;
+  width: 80px;
+  background-color:#b7e6f1;
+  color:black;
+  margin-right: 12px;
+  border-color: #A63125;
+} 
+
+.input
+{
+	width:370px;
+	margin-left: 10px;
+	height: 50px;
+	border-radius: 5px;
+	border: 4px inset #e0eff2;
+	font-size: 25px;
+
+
+}
+
+  	</style>  
+  	<title>Calculator</title>
+  </head>
+  <body>
+   <div id="main">
+   	<div><h1 style="color: red; padding-bottom: 20px;">Calculator</h1>
+   		</div>
+				<div><input type="text" id="result" value=""class="input" disabled="yes">
+				
+					<button class="button" id="cleardata" value="" style="background-color: red; float: right;" onclick="del('cleardata')">CLEAR </button></div>
+					<table>
+							<td><button class="button" id="1" value="1" onclick="show('1')"> 1</button></td>
+							<td><button class="button" value="2" id ="2"onclick="show('2')"> 2</button></td>
+							<td><button class="button" value="3" onclick="show('3')"> 3</button></td>
+							<td><button class="button" value="+" onclick="operation('+')"> +</button></td>
+						</tr>
+					
+					<tr>
+							<td><button class="button" value="4" onclick="show('4')"> 4</button></td>
+							<td><button class="button" value="5" onclick="show('5')"> 5</button></td>
+							<td><button class="button" value="6" onclick="show('6')"> 6</button></td>
+							<td><button class="button" value="-" onclick="operation('-')"> -</button></td>
+</tr>
+
+<tr>
+							<td><button class="button" value="7" onclick="show('7')"> 7</button></td>
+							<td><button class="button" value="8" onclick="show('8')"> 8</button></td>
+							<td><button class="button" value="9" onclick="show('9')"> 9</button></td>
+							<td><button class="button" value="*"onclick="operation('*')"> *</button></td>
+						</tr>
+					
+					<tr>
+							<td><button class="button" value="0" onclick="show('0')"> 0</button></td>
+							<td><button class="button" value="." onclick="show('.')"> .</button></td>
+							<td><button class="button" value="=" onclick="operation('=')"> =</button></td>
+							<td><button class="button" value="/" onclick="operation('/')">/</button></td>
+</tr>
+</table>
+ </div>
+
+ 	<script>
+ 		var displayvalue="";
+ 		var previousvalue=0;
+ 		var opt="+";
+ 		var result1;
+ 		function show(operand) {
+ 			displayvalue+=operand;
+			document.getElementById("result").value=displayvalue;
+ 		}
+ 		function operation(oprator)
+ 		{
+			console.log(previousvalue);
+ 			switch(opt)
+ 			{
+ 				case'+':
+ 			
+ 				result1=parseFloat(parseFloat(previousvalue)+ parseFloat(displayvalue));
+ 				document.getElementById("result").value=result1;
+ 				break;
+ 				case'-':
+ 				result1=parseFloat(parseFloat(previousvalue)- parseFloat(displayvalue));
+ 				document.getElementById("result").value=result1;
+ 				break;
+ 				case'*':
+ 				result1=parseFloat(parseFloat(previousvalue) * parseFloat(displayvalue));
+ 				document.getElementById("result").value=result1;
+ 				break;
+ 				case'/':
+ 				result1=parseFloat(parseInt(previousvalue) / parseInt(displayvalue));
+ 				document.getElementById("result").value=result1;
+ 				break;
+ 				case'=':
+
+ 				document.getElementById("result").value=result1;
+ 				default:
+ 				break;
+ 			}
+ 			displayvalue=0;
+ 			previousvalue=result1;
+ 			opt=oprator;
+		}
+ 		function del(cleardata)
+ 		{
+ 			previousvalue=0;
+ 			displayvalue=0;
+ 			result=0;
+ 			opt="+";
+ 			document.getElementById('result').value="";
+ 			
+ 		}
+ </script>
+</body>
+</html>
+</body> 
+</html> 
